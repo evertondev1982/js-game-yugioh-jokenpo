@@ -1,0 +1,203 @@
+
+/* ========== BASE ========== */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    overflow: hidden;
+    background: #000;
+    font-family: 'Press Start 2P', monospace;
+}
+
+/* ========== VÍDEO DE FUNDO ========== */
+.bg-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -2;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.bg-video .video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* preenche a tela sem distorcer */
+}
+
+.bg-video::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg,
+        rgba(0, 0, 0, 0.1) 0%,
+        rgba(0, 0, 0, 0.8) 50%,
+        rgba(0, 0, 0, 0.1) 100%);
+}
+
+/* ========== MOLDURAS (imagens da pasta rpg) ========== */
+.frame,
+.framed {
+    border: 12px solid transparent;
+    border-image: url('../rpg/border-image.png') 12 stretch;
+    background: url('../rpg/background-image.png');
+    image-rendering: pixelated;
+}
+
+.frame-golden-2 {
+    border: 12px solid transparent;
+    border-image: url('../rpg/border-image-golden2.png') 12 stretch;
+    background: url('../rpg/background-image-golden2.png');
+    image-rendering: pixelated;
+}
+
+/* ========== LAYOUT GERAL ========== */
+.container {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    gap: 0;
+    height: 100vh;
+    padding: 0;
+}
+
+/* ========== MENU DA ESQUERDA ========== */
+.container__left {
+    width: 300px;
+    height: 100%;
+    flex-shrink: 0;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    gap: 10px;
+    font-size: 12px;
+    color: #fff;
+}
+
+.score_box {
+    width: 100%;
+    padding: 12px 8px;
+    font-size: 9px;
+    text-align: center;
+    color: #fff;
+}
+
+.menu__avatar {
+    width: 100%;
+}
+
+.menu__avatar img {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+}
+
+/* esconde a caixinha vazia enquanto o avatar não tem imagem */
+#card-image:not([src]) {
+    visibility: hidden;
+}
+
+.card_details {
+    width: 90%;
+    height: 6rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 10px;
+    text-align: center;
+    color: #fff;
+}
+
+/* ========== ÁREA DA DIREITA ========== */
+.container__right {
+    flex: 1;
+    min-width: 0;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.card-box__container {
+    width: 100%;
+    height: 120px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+/* imagens do campo: não deixa a carta esticar */
+#player-field-card,
+#computer-field-card {
+    object-fit: contain;
+}
+
+.card-box {
+    width: 100%;
+    height: 9rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.versus-top {
+    width: 100%;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.versus-bottom {
+    display: flex;
+    justify-content: center;
+}
+
+/* ========== BOTÃO ========== */
+.rpgui-button {
+    width: 180px;
+    height: 58px;
+    border: none;
+    background: url('../rpg/button.png') center / 100% 100% no-repeat;
+    image-rendering: pixelated;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 12px;
+    color: #030303;
+    cursor: pointer;
+}
+
+.rpgui-button:hover {
+    background-image: url('../rpg/button-hover.png');
+}
+
+.rpgui-button:active {
+    background-image: url('../rpg/button-down.png');
+}
+
+/* escondido até o duelo acontecer (o engine.js vai mostrar) */
+#next-duel {
+    display: none;
+}
+
+.card{
+    transition: transform 0.2s;
+
+}
+
+.card:hover {
+    transform: scale(1.2);
+    transition: transform 0.3s ease-in-out;
+}

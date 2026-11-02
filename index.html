@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+    <!-- favicon -->
+     <link rel="shortcut icon" href="./src/assets/favicon/favicon.ico" type="image/x-icon">
+
+    <!-- main style -->
+    <link rel="stylesheet" href="./src/assets/style/main.css">
+
+    <title>Yu-Gi-Oh! Jokenpo Edition</title>
+</head>
+<body>
+
+    <audio id = "bgm" loop>
+        <source src="./src/assets/audios/egyptian_duel.mp3" type="audio/mp3"/>
+    </audio>
+
+    <!-- vídeo de fundo -->
+    <div class="bg-video">
+        <video class="video" autoplay muted loop>
+            <source src="./src/assets/video/yugi.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <div class="container">
+
+        <!-- menu da esquerda -->
+        <div class="container__left frame-golden-2">
+            <div class="score_box frame">
+                <span id="score_points">win : 0 |Lose : 0</span>
+            </div>
+            <div class="menu__avatar">
+                <img id="card-image">
+            </div>
+            <div class="card_details frame">
+                <p id="card-name">Selecione</p>
+                <p id="card-type">uma carta</p>
+            </div>
+        </div>
+
+        <!-- área da direita -->
+        <div class="container__right">
+
+            <!-- cartas do computador (topo) -->
+            <div class="card-box__container framed" id="computer-cards"></div>
+
+            <!-- campo de batalha (meio) -->
+            <div class="versus-top">
+                <div class="card-infield">
+                    <img id="player-field-card" src="./src/assets/img/default-card.png" alt="Player Field Card" height="180" width="125">
+                </div>
+                <img height="100" src="./src/assets/icons/millenium2.png" alt="versus">
+                <div class="card-infield">
+                    <img id="computer-field-card" src="./src/assets/img/default-card.png" alt="Computer Field Card" height="180" width="125">
+                </div>
+            </div>
+
+            <!-- botão do duelo (escondido por enquanto) -->
+            <div class="versus-bottom">
+                <button id="next-duel" class="rpgui-button">GANHOU</button>
+            </div>
+
+            <!-- cartas do jogador (embaixo) -->
+            <div class="card-box__container framed" id="player-cards"></div>
+
+        </div>
+    </div>
+
+    <script src="./src/assets/script/engine.js" defer></script>
+</body>
+</html>
